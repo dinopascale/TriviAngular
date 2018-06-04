@@ -1,0 +1,7 @@
+<div *ngIf="!questionState.questions.setQuestionsError; else noquestions">
+    <app-progress-bar></app-progress-bar>
+    <app-questions-list></app-questions-list>
+</div>
+<ng-template #noquestions>
+    <app-no-questions></app-no-questions>
+</ng-template>

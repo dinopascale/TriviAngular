@@ -1,0 +1,4 @@
+<div [ngClass]="['modal-container', (modalState$ | async).isModalOpen ? 'show' : 'hide']">
+    <app-pause-modal *ngIf="(modalState$ | async).typeOfModal === 'pause'"></app-pause-modal>
+    <app-error-modal *ngIf="(modalState$ | async).typeOfModal === 'errorApi'"></app-error-modal>
+</div>

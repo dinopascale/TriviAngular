@@ -1,0 +1,9 @@
+<div ngClass="card">
+    <p [innerHTML]="answeredQuestion.question | decodeURI" [ngStyle]="{'letter-spacing': '2px', 'font-weight': 'bold'}"></p>
+    <p [innerHTML]="'Right answer: ' + (answeredQuestion.correct_answer | decodeURI)" [ngStyle]="{'color': 'darkgreen'}"></p>  
+    <p 
+        [innerHTML]="'Your answer: ' + (answeredQuestion.userAnswer | decodeURI)"
+        [ngStyle]="{'color': answeredQuestion.userAnswer === answeredQuestion.correct_answer ? 'darkcyan' : 'mediumvioletred'}">
+    </p>
+</div>
+ 

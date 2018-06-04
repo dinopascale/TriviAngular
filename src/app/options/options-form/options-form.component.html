@@ -1,0 +1,34 @@
+<h1>Personalizza le impostazioni o parti subito!</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <p>
+        <label for="nQuestions">Number of Questions:</label>
+        <input type="number" id="nQuestions" name="amount" [ngModel]="defaultOptions.amount">
+    </p>
+    <p>
+        <label for="dQuestions">Difficulty of Questions:</label>
+        <select id="dQuestions" name="difficulty" [ngModel]="defaultOptions.difficulty">
+            <option value="any">Any</option>            
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>            
+        </select>
+    </p>
+    <p>
+        <label for="tQuestions">Type of Questions:</label>
+        <select id="tQuestions" name="type" [ngModel]="defaultOptions.type">
+            <option value="any">Any</option>            
+            <option value="multiple">Multiple Choice</option>
+            <option value="boolean">True / False</option>    
+        </select>
+    </p>
+    <p>
+        <label for="cQuestions">Category of Questions:</label>
+        <select id="cQuestions" name="category" [ngModel]="defaultOptions.category">
+            <option value="any">Any</option>
+            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>  
+        </select>
+    </p>
+    <p>
+        <button type="submit">Start Game</button>
+    </p>
+</form>
