@@ -13,6 +13,7 @@ import { CanDeactivateGuard } from './../shared/can-deactivate.service';
 import { PauseModalComponent } from './modal-layer/pause-modal/pause-modal.component';
 import { ErrorModalComponent } from './modal-layer/error-modal/error-modal.component';
 import { ModalLayerComponent } from './modal-layer/modal-layer.component';
+import { LoadingModalComponent } from './modal-layer/loading-modal/loading-modal.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { ModalLayerComponent } from './modal-layer/modal-layer.component';
         NavbarComponent,
         PauseModalComponent,
         ErrorModalComponent,
-        ModalLayerComponent
+        ModalLayerComponent,
+        LoadingModalComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: TriviaApiInterceptor, multi: true },

@@ -5,3 +5,7 @@
     padding:0;
     background: #fff;
 }
+
+.blurred {
+    filter: blur(2px);
+}
