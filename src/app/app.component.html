@@ -1,4 +1,4 @@
-<div ngClass="app-container">
+<div [ngClass]="['app-container', (appState$ | async).isModalOpen ? 'blurred' : '']">
     <app-navbar></app-navbar>
     <router-outlet></router-outlet>
 </div>
