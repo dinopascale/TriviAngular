@@ -23,6 +23,10 @@
               "src/assets"
             ],
             "styles": [
+                {
+                    "input": "src/my-theme.scss"
+                },
+             "./node_modules/normalize.css/normalize.css",                
               "src/styles.css"
             ],
             "scripts": []

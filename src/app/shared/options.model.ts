@@ -1,8 +1,6 @@
-export class Options {
-    constructor(
-        public amount: string | number,
-        public type: string,
-        public difficulty: string,
-        public category: string | number
-    ) {}
+export interface Options {
+    amount: string | number;
+    type: string;
+    difficulty: string;
+    category: string | number;
 }

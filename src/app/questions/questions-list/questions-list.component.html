@@ -1,5 +1,4 @@
-<!-- <div *ngFor="let question of (questionsState$ | async).questions" [innerHTML]="question.question | decodeURI "></div> -->
-<div *ngFor="let questionItem of (questionsState$ | async).questions; let i = index">
+<div *ngFor="let questionItem of (questionsState$ | async).questions; let i = index" fxLayout="column">
     <app-questions-item 
         *ngIf="i === (questionsState$ | async).actualQuestion && i <= (questionsState$ | async).actualQuestion"
         [questionItem]="questionItem"

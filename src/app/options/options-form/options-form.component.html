@@ -1,34 +1,43 @@
-<h1>Personalizza le impostazioni o parti subito!</h1>
-<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-    <p>
-        <label for="nQuestions">Number of Questions:</label>
-        <input type="number" id="nQuestions" name="amount" [ngModel]="defaultOptions.amount">
-    </p>
-    <p>
-        <label for="dQuestions">Difficulty of Questions:</label>
-        <select id="dQuestions" name="difficulty" [ngModel]="defaultOptions.difficulty">
-            <option value="any">Any</option>            
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>            
-        </select>
-    </p>
-    <p>
-        <label for="tQuestions">Type of Questions:</label>
-        <select id="tQuestions" name="type" [ngModel]="defaultOptions.type">
-            <option value="any">Any</option>            
-            <option value="multiple">Multiple Choice</option>
-            <option value="boolean">True / False</option>    
-        </select>
-    </p>
-    <p>
-        <label for="cQuestions">Category of Questions:</label>
-        <select id="cQuestions" name="category" [ngModel]="defaultOptions.category">
-            <option value="any">Any</option>
-            <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>  
-        </select>
-    </p>
-    <p>
-        <button type="submit">Start Game</button>
-    </p>
-</form>
+<div class="container" ngClass="container-options">
+        <div fxLayout="row" fxLayoutAlign="center start">
+            <h1 class="mat-h1">Impostazioni</h1>
+        </div>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" fxLayout="column" ngClass="form-container">
+            <div fxLayout="row" ngClass="form-group-container">
+                <label for="dQuestions" ngClass="form-group-label" class="mat-input">Number of Questions: {{defaultOptions.amount}}</label>
+                <mat-slider name="amount" min="10" max="50" step="1" [(ngModel)]="defaultOptions.amount" ngClass="form-group-slider"></mat-slider>
+            </div>
+            <mat-divider></mat-divider>
+            <div fxLayout="row" ngClass="form-group-container">
+                <label for="dQuestions" ngClass="form-group-label" class="mat-input">Difficulty:</label>          
+                <mat-radio-group name="difficulty" [ngModel]="defaultOptions.difficulty" ngClass="form-group" id="dQuestions">
+                    <mat-radio-button value="any" ngClass="form-group-item">Any</mat-radio-button>
+                    <mat-radio-button value="easy" ngClass="form-group-item">Easy</mat-radio-button>
+                    <mat-radio-button value="medium" ngClass="form-group-item">Medium</mat-radio-button>
+                    <mat-radio-button value="hard" ngClass="form-group-item">Hard</mat-radio-button>                                                
+                </mat-radio-group>
+            </div>
+            <mat-divider></mat-divider>            
+            <div fxLayout="row" ngClass="form-group-container">
+                <label for="tQuestions" ngClass="form-group-label" class="mat-input">Type of Questions:</label>   
+                <mat-radio-group name="type" [ngModel]="defaultOptions.type" ngClass="form-group" id="tQuestions" fxLayout="row">
+                    <mat-radio-button value="any" ngClass="form-group-item">Any</mat-radio-button>
+                    <mat-radio-button value="multiple" ngClass="form-group-item">Multiple Choice</mat-radio-button>
+                    <mat-radio-button value="boolean" ngClass="form-group-item">True / False</mat-radio-button>                                             
+                </mat-radio-group>
+            </div>
+            <mat-divider></mat-divider>
+            <p class="mat-input" for="cQuestions">Category of Questions: {{(categoryChoose || defaultOptions.category)}}</p>
+            <mat-accordion fxLayout="row" ngClass="form-group-container">
+                <mat-expansion-panel *ngFor="let key of categorizedKeys">
+                    <mat-expansion-panel-header ngClass="form-group-label" class="mat-input">{{key}}</mat-expansion-panel-header>
+                    <mat-radio-group name="category" ngClass="form-group" [(ngModel)]="defaultOptions.category" ngClass="form-group">
+                        <mat-radio-button required *ngFor="let category of categorized[key]" [value]="category.id" ngClass="form-group-item" (change)="categoryChoosed($event)">{{category.name}}</mat-radio-button>
+                    </mat-radio-group>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div fxLayout="row" ngClass="form-group-container" fxLayoutAlign="end center">
+                <button mat-raised-button color="accent" type="submit">Start Game</button>
+            </div>
+        </form>
+</div>

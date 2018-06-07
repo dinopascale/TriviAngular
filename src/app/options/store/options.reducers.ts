@@ -8,10 +8,10 @@ export interface FeatureState extends fromApp.AppState {
 }
 
 const initialState: Options = {
-        amount: '',
-        difficulty: '',
-        type: '',
-        category: ''
+        amount: 10,
+        difficulty: 'any',
+        type: 'any',
+        category: 'any'
 };
 
 export function OptionsReducers (state = initialState, action: OptionsActions.OptionsAction) {

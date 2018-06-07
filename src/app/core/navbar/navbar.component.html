@@ -1,1 +1,6 @@
-<p>Session State: {{ (sessionState | async).newSession }}</p>
+<mat-toolbar [color]="(url$ | async) === '/questions' ? 'accent' : 'primary'" ngClass="nav" class="mat-elevation-z6">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+        <button mat-button class="button" routerLink="/"><mat-icon>home</mat-icon></button>
+        <button mat-button class="button" routerLink="/" *ngIf="(url$ | async) !== '/questions'">Accedi</button>
+    </mat-toolbar-row>
+</mat-toolbar>

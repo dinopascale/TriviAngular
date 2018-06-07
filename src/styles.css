@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Roboto, "sans serif";
+    min-height: 100vh;
+}
+
+.container, .container-accent {
+    color: #fff;
+    background: #3f51b5;
+    position: absolute;
+    left:0;
+    right:0;
+    top:64px;
+    padding-top: 45px;
+    min-height: calc(100% - 64px);
+}
+
+.container-accent {
+    background: #ffd740;
+    color: #3f51b5;
+}
+
+.mat-radio-outer-circle {
+    /* border-color: #fff; */
+}
+
+@media (max-width: 599px) {
+    .container, .container-accent {
+        top: 56px;
+        min-height: calc(100% - 56px); 
+    }
+}

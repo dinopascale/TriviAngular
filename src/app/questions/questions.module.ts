@@ -1,3 +1,4 @@
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +16,7 @@ import { AnswersListComponent } from './questions-list/answers-list/answers-list
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { AnswersItemComponent } from './questions-list/answers-list/answers-item/answers-item.component';
 import { NoQuestionsComponent } from './no-questions/no-questions.component';
+import { AngularMaterialModule } from '../core/angular-material.module';
 
 @NgModule({
     declarations: [
@@ -29,6 +31,8 @@ import { NoQuestionsComponent } from './no-questions/no-questions.component';
     imports: [
         CommonModule,
         SharedModule,
+        FlexLayoutModule,
+        AngularMaterialModule,
         QuestionsRoutingModule,
         StoreModule.forFeature('questions', QuestionsReducers),
         EffectsModule.forFeature([QuestionsEffects])

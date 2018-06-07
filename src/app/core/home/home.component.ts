@@ -20,6 +20,11 @@ export class HomeComponent implements OnInit {
 
     onStart () {
         this.store.dispatch(new HomeActions.StartNewSession());
+        this.router.navigate(['/questions']);
+    }
+
+    onOption () {
+        this.store.dispatch(new HomeActions.StartNewSession());
         this.router.navigate(['/options']);
     }
 }

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { CoreModule } from './core/core.module';
+import { AngularMaterialModule } from './core/angular-material.module';
 import { environment } from './../environments/environment';
 
 
@@ -20,8 +22,10 @@ import { AppComponent } from './app.component';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         HttpClientModule,
         CoreModule,
+        AngularMaterialModule,
         StoreModule.forRoot(reducers, {metaReducers}),
         EffectsModule.forRoot([HomeEffects]),
         StoreRouterConnectingModule,

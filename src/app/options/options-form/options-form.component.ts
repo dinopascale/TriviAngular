@@ -1,6 +1,7 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Options } from './../../shared/options.model';
@@ -15,7 +16,14 @@ import * as OptionsAction from '../store/options.actions';
   styleUrls: ['./options-form.component.css']
 })
 export class OptionsFormComponent implements OnInit {
-    categories;
+    categorized = {
+        Entertainment: [],
+        Science: [],
+        Others: []
+    };
+    categorizedKeys: string[];
+
+    categoryChoose;
 
     defaultOptions: Options = {
         amount: 10,
@@ -29,8 +37,12 @@ export class OptionsFormComponent implements OnInit {
     ngOnInit() {
         this.route.data
             .subscribe((data: {categories: TriviaCategories[]}) => {
-                this.categories = data.categories;
+                this.onSubCategories(data);
             });
+    }
+
+    categoryChoosed (event) {
+        this.categoryChoose = event.source._elementRef.nativeElement.textContent;
     }
 
     onSubmit(value: Options) {
@@ -41,6 +53,25 @@ export class OptionsFormComponent implements OnInit {
             difficulty: value.difficulty
         }));
         this.router.navigate(['/questions']);
+    }
+
+    onSubCategories(data: {categories: TriviaCategories[]}) {
+        console.log(data);
+        data.categories.forEach(el => {
+            if (el.name.includes('Entertainment')) {
+                let newName = el.name;
+                newName = newName.replace('Entertainment: ', '');
+                this.categorized['Entertainment'].push({...el, name: newName});
+            } else if (el.name.includes('Science')) {
+                let newName = el.name;
+                newName = newName.replace('Science: ', '');
+                this.categorized['Science'].push({...el, name: newName});
+            } else {
+                this.categorized['Others'].push(el);
+            }
+        });
+        this.categorizedKeys = Object.keys(this.categorized);
+        console.log(this.categorized, this.categorizedKeys);
     }
 
 }

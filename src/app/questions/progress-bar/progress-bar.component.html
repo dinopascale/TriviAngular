@@ -1,3 +1,3 @@
-<p>
-  Question number: {{(actualQuestion$ | async).actualQuestion + 1}}
-</p>
+<span class="mat-subheading-2">
+  {{(actualQuestion$ | async).actualQuestion + 1}} / {{(actualQuestion$ | async).questions.length}}
+</span>

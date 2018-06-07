@@ -1,7 +1,15 @@
-<div *ngIf="!questionState.questions.setQuestionsError; else noquestions">
-    <app-progress-bar></app-progress-bar>
-    <app-questions-list></app-questions-list>
+<div
+    *ngIf="!questionState.questions.setQuestionsError; else noquestions"
+    class="container-accent"
+    ngClass="container-questions">
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+        <app-progress-bar></app-progress-bar>
+        <span class="mat-subheading-2">timer</span>
+    </div>
+    <app-questions-list></app-questions-list>    
 </div>
 <ng-template #noquestions>
-    <app-no-questions></app-no-questions>
+    <div class="container-accent" ngClass="container-questions">
+        <app-no-questions></app-no-questions>
+    </div>
 </ng-template>

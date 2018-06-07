@@ -1,1 +1,3 @@
-<p (click)="onAnswered()" [innerHTML]="answer"></p>
+<button mat-raised-button color="primary" ngClass="answer" (click)="onAnswered()">
+    <span [innerHTML]="answer" ></span>
+</button>

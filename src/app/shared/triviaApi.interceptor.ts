@@ -34,13 +34,17 @@ export class TriviaApiInterceptor implements HttpInterceptor {
         } else {
             return this.store.select('userOptions').pipe(
                 take(1),
-                switchMap((optionState: Options) => {
+                switchMap((optionsState: Options) => {
                     let params = new HttpParams();
-                    Object.keys(optionState).forEach(k => {
-                        if (k === 'amount' || optionState[k] !== 'any') {
-                            params = params.append(k, optionState[k]);
-                        }
-                    });
+                    if (optionsState == null) {
+                        params = params.append('amount', '10');
+                    } else {
+                        Object.keys(optionsState).forEach(k => {
+                            if (k === 'amount' || optionsState[k] !== 'any') {
+                                params = params.append(k, optionsState[k]);
+                            }
+                        });
+                    }
                     const clonedReq = req.clone({ params });
                     return next.handle(clonedReq).pipe(tap(
                         (event: HttpEvent<any>) => {

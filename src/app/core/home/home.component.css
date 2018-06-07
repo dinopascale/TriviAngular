@@ -1,14 +1,28 @@
-.start {
-    background: none;
-    border: 4px solid darkcyan;
-    padding: 20px;
-    font-size: 16px;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
+.headlines {
+    padding-left:10px;
+    padding-right:10px;
+    color: #fff;
+    text-align: center;
 }
 
-.start:hover {
-    background: darkcyan;
-    color: white;
+.headlines-title {
+    font-size:56px;
+    font-weight: 300;
+    line-height: 56px;
+    margin: 15px 5px;
+}
+
+.headlines-sub {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    margin: 15px 0px 25px;    
+}
+
+.headlines-link {
+    color: #fff;
+}
+
+.home-button {
+    margin:15px 0;
 }

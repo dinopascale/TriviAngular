@@ -1,0 +1,77 @@
+.container-options {
+    padding-top:20px;
+    padding-left:25px;
+    padding-right:25px;    
+}
+
+.form-container {
+    padding:10px 0px;
+}
+
+.form-group-container {
+    margin: 15px 0 15px 0;
+}
+
+.form-group, .form-group-slider {
+    width:100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.form-group {
+    padding: 10px 0;    
+}
+
+.form-group-slider {
+    padding: 20px 0;
+}
+
+.form-group-item {
+    flex: 1 1 50%;
+    margin: 7px 0px;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    border-color: #fff;
+}
+
+::ng-deep .mat-slider-background {
+    background-color: rgba(255,255,255,.6);
+} 
+
+::ng-deep .mat-slider-track-background {
+    background-color: rgba(255,255,255,.6)
+}
+
+::ng-deep .mat-slider:hover .mat-slider-track-background {
+    background-color: #fff;
+}
+
+::ng-deep .cdk-focused .mat-slider-track-background {
+    background-color: #fff;
+}
+
+::ng-deep .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    border-color: #fff;
+}
+
+::ng-deep .mat-slider-min-value:not(.mat-slider-thumb-label-showing):hover .mat-slider-thumb {
+    border-color: #fff;
+}
+
+::ng-deep .mat-slider-min-value:not(.mat-slider-thumb-label-showing).cdk-focused .mat-slider-thumb {
+    border-color: #fff;
+}
+
+::ng-deep .mat-expansion-panel {
+    background: transparent;
+    color: #fff;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+    color: #fff;
+}
+
+::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}

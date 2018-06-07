@@ -4,6 +4,8 @@ import { SharedModule } from '../shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './../app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularMaterialModule } from './angular-material.module';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,15 +16,19 @@ import { PauseModalComponent } from './modal-layer/pause-modal/pause-modal.compo
 import { ErrorModalComponent } from './modal-layer/error-modal/error-modal.component';
 import { ModalLayerComponent } from './modal-layer/modal-layer.component';
 import { LoadingModalComponent } from './modal-layer/loading-modal/loading-modal.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FlexLayoutModule,
+        AngularMaterialModule
     ],
     exports: [
         NavbarComponent,
+        ContainerComponent,
         ModalLayerComponent,
         AppRoutingModule
     ],
@@ -32,7 +38,8 @@ import { LoadingModalComponent } from './modal-layer/loading-modal/loading-modal
         PauseModalComponent,
         ErrorModalComponent,
         ModalLayerComponent,
-        LoadingModalComponent
+        LoadingModalComponent,
+        ContainerComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: TriviaApiInterceptor, multi: true },

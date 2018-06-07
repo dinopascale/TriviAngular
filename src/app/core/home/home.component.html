@@ -1,3 +1,10 @@
-<h2>TriviAngular</h2>
-<button [ngClass]="'start'" (click)="onStart()">New Game</button>
-<br>
+<div class="container" fxLayout="column" fxLayoutAlign="start center">
+    <div fxLayout="column" fxLayoutAlign="center center" ngClass="headlines">
+        <h1 class="mat-h1" ngClass="headlines-title">TriviAngular</h1>
+        <h2 ngClass="headlines-sub" fxFlex="80%">A quiz app builded with Angular6 and <a ngClass="headlines-link" href="https://opentdb.com/api_config.php" target="_blank">trivia api</a></h2>        
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center">
+        <button mat-raised-button color="accent" (click)="onStart()" ngClass="home-button">New Game</button>
+        <button mat-raised-button color="accent" (click)="onOption()" ngClass="home-button">Options</button>        
+    </div>
+</div>
