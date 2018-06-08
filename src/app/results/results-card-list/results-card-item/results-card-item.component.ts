@@ -13,8 +13,6 @@ export class ResultsCardItemComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
-        console.log(this.answeredQuestion);
-    }
+    ngOnInit() { }
 
 }

@@ -15,7 +15,7 @@ import * as QuestionsAction from '../store/questions.actions';
 export class TimerComponent implements OnInit, OnDestroy {
     timer$: Observable<number>;
     subcrib;
-    timeLimit = 5;
+    timeLimit = 15;
     quizLen: number;
 
     constructor(private store: Store<fromQuestions.FeatureState>) { }
@@ -31,10 +31,8 @@ export class TimerComponent implements OnInit, OnDestroy {
                 return data.actualQuestion;
             }),
             switchMap((actualQ: number) => {
-                console.log('actualQ: ', actualQ, this.quizLen);
                 return interval(1000).pipe(
                     map((i: number) => {
-                        console.log('dentro ultima map', i, actualQ);
                         if ((this.timeLimit - i) < 0) {
                             if (actualQ + 1 === this.quizLen) {
                                 this.store.dispatch(new ModalLayerActions.ShowModal('loading'));

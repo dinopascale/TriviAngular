@@ -1,3 +1,6 @@
-<h4 ngClass="question" class="mat-headline" [innerHTML]="(questionItem.question | decodeURI)"></h4>
-<app-answers-list [answers]="shuffledArr"></app-answers-list>
+<div ngClass="question-item">
+    <h4 ngClass="question" class="mat-headline" [innerHTML]="(questionItem.question | decodeURI)"></h4>
+    <app-answers-list [answers]="shuffledArr"></app-answers-list>
+</div>
+
 
