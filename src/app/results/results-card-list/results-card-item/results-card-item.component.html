@@ -1,9 +1,21 @@
-<div ngClass="card">
-    <p [innerHTML]="answeredQuestion.question | decodeURI" [ngStyle]="{'letter-spacing': '2px', 'font-weight': 'bold'}"></p>
-    <p [innerHTML]="'Right answer: ' + (answeredQuestion.correct_answer | decodeURI)" [ngStyle]="{'color': 'darkgreen'}"></p>  
-    <p 
-        [innerHTML]="'Your answer: ' + (answeredQuestion.userAnswer | decodeURI)"
-        [ngStyle]="{'color': answeredQuestion.userAnswer === answeredQuestion.correct_answer ? 'darkcyan' : 'mediumvioletred'}">
-    </p>
-</div>
+<mat-card ngClass="result-card">
+    <mat-card-header>
+        <mat-card-title>
+            Question {{number + 1 }} - {{answeredQuestion.category}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <h3 class="mat-h3" ngClass="question"><span [innerHTML]="answeredQuestion.question | decodeURI"></span></h3>
+        <div fxLayout="row" ngClass="card-content"  fxLayoutGap="10px">
+            <div ngClass="card-content-col">
+                <p>Right Answer</p>
+                <p ngClass="answer" [innerHTML]="(answeredQuestion.correct_answer | decodeURI)"></p>
+            </div>
+            <div ngClass="card-content-col">
+                <p>Your Answer</p>
+                <p ngClass="answer" [innerHTML]="(answeredQuestion.userAnswer | decodeURI)"></p>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
  

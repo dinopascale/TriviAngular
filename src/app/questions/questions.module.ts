@@ -17,6 +17,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { AnswersItemComponent } from './questions-list/answers-list/answers-item/answers-item.component';
 import { NoQuestionsComponent } from './no-questions/no-questions.component';
 import { AngularMaterialModule } from '../core/angular-material.module';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { AngularMaterialModule } from '../core/angular-material.module';
         AnswersListComponent,
         ProgressBarComponent,
         AnswersItemComponent,
-        NoQuestionsComponent
+        NoQuestionsComponent,
+        TimerComponent
     ],
     imports: [
         CommonModule,

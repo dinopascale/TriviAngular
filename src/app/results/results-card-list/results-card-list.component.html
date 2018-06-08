@@ -1,2 +1,3 @@
-<h3>Let's See In Detail</h3>
-<app-results-card-item *ngFor="let questionItem of questions" [answeredQuestion]="questionItem"></app-results-card-item>
+<div ngClass="result-card-list">
+    <app-results-card-item  *ngFor="let questionItem of questions; let i = index" [answeredQuestion]="questionItem" [number]="i"></app-results-card-item>
+</div>

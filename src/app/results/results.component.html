@@ -1,3 +1,5 @@
-<app-reset-button></app-reset-button>
-<app-final-score [questions]="resultsState.questions.questions"></app-final-score>
-<app-results-card-list [questions]="resultsState.questions.questions"></app-results-card-list>
+<div class="container" ngClass="results-container" fxLayout="column">
+    <!-- <app-reset-button></app-reset-button> -->
+    <app-final-score [questions]="resultsState.questions.questions"></app-final-score>
+    <app-results-card-list [questions]="resultsState.questions.questions"></app-results-card-list>
+</div>

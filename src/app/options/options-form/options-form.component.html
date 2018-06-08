@@ -5,7 +5,7 @@
         <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" fxLayout="column" ngClass="form-container">
             <div fxLayout="row" ngClass="form-group-container">
                 <label for="dQuestions" ngClass="form-group-label" class="mat-input">Number of Questions: {{defaultOptions.amount}}</label>
-                <mat-slider name="amount" min="10" max="50" step="1" [(ngModel)]="defaultOptions.amount" ngClass="form-group-slider"></mat-slider>
+                <mat-slider name="amount" min="3" max="50" step="1" [(ngModel)]="defaultOptions.amount" ngClass="form-group-slider"></mat-slider>
             </div>
             <mat-divider></mat-divider>
             <div fxLayout="row" ngClass="form-group-container">

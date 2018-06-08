@@ -8,6 +8,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
     exports: [
@@ -19,7 +21,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatDividerModule,
         MatExpansionModule,
         MatIconModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatCardModule,
+        MatBadgeModule
     ]
 })
 export class AngularMaterialModule {}

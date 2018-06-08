@@ -26,7 +26,7 @@ export class OptionsFormComponent implements OnInit {
     categoryChoose;
 
     defaultOptions: Options = {
-        amount: 10,
+        amount: 5,
         difficulty: 'any',
         type: 'any',
         category: 'any'

@@ -2,6 +2,7 @@ import { Store } from '@ngrx/store';
 import { Component, Input, OnInit } from '@angular/core';
 
 import * as fromQuestions from '../../../store/questions.reducers';
+import * as ModalLayerActions from '../../../../core/modal-layer/store/modal-layer.actions';
 import * as QuestionsActions from '../../../store/questions.actions';
 
 @Component({
@@ -25,6 +26,7 @@ export class AnswersItemComponent implements OnInit {
 
     onAnswered () {
         if (this.isLast) {
+            this.store.dispatch(new ModalLayerActions.ShowModal('loading'));
             this.store.dispatch(new QuestionsActions.SetLastAnswer({answer: this.answer}));
         } else {
             this.store.dispatch(new QuestionsActions.SetAnswer({answer: this.answer}));

@@ -1,5 +1,27 @@
-.card {
-    border: 1px solid;
-    margin-bottom: 10px;
-    padding: 20px;
+.result-card {
+    margin-bottom: 30px;
+    background: #ffd740;
+    color: #3f51b5;
+}
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-content-col {
+    flex: 1 0 45%;
+}
+
+.question {
+    font-weight: 500;
+}
+
+.answer {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+::ng-deep .mat-card-header-text {
+    margin: 0 !important;
 }

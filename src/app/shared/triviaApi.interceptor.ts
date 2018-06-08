@@ -5,6 +5,7 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpParams, HttpE
 import { Injectable } from '@angular/core';
 
 import * as fromApp from '../store/app.reducers';
+import * as QuestionsActions from '../questions/store/questions.actions';
 import * as ModalLayerActions from '../core/modal-layer/store/modal-layer.actions';
 
 import { Options } from './options.model';
@@ -27,6 +28,7 @@ export class TriviaApiInterceptor implements HttpInterceptor {
                 },
                 (err: any) => {
                     if (err instanceof HttpErrorResponse) {
+                        this.store.dispatch(new QuestionsActions.ErrFetchQuestions());
                         this.store.dispatch(new ModalLayerActions.ShowModal('errorApi'));
                     }
                 }
@@ -37,7 +39,7 @@ export class TriviaApiInterceptor implements HttpInterceptor {
                 switchMap((optionsState: Options) => {
                     let params = new HttpParams();
                     if (optionsState == null) {
-                        params = params.append('amount', '10');
+                        params = params.append('amount', '5');
                     } else {
                         Object.keys(optionsState).forEach(k => {
                             if (k === 'amount' || optionsState[k] !== 'any') {
@@ -54,6 +56,7 @@ export class TriviaApiInterceptor implements HttpInterceptor {
                         },
                         (err: any) => {
                             if (err instanceof HttpErrorResponse) {
+                                this.store.dispatch(new QuestionsActions.ErrFetchQuestions());
                                 this.store.dispatch(new ModalLayerActions.ShowModal('errorApi'));
                             }
                         }

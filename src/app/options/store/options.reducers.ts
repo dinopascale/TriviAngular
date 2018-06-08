@@ -8,7 +8,7 @@ export interface FeatureState extends fromApp.AppState {
 }
 
 const initialState: Options = {
-        amount: 10,
+        amount: 5,
         difficulty: 'any',
         type: 'any',
         category: 'any'

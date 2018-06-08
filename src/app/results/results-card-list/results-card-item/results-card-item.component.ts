@@ -9,9 +9,12 @@ import { AnsweredQuestion } from '../../../shared/questions.model';
 })
 export class ResultsCardItemComponent implements OnInit {
     @Input() answeredQuestion: AnsweredQuestion;
+    @Input() number: number;
 
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        console.log(this.answeredQuestion);
+    }
 
 }

@@ -20,6 +20,9 @@ export class ResultsComponent implements OnInit {
         this.store.subscribe((data: fromResults.FeatureState) => {
             this.resultsState = data;
         });
+        setTimeout(() => {
+            this.store.dispatch(new ModalLayerlActions.HideModal());
+        }, 500);
     }
 
     canDeactivate(): Observable<boolean> | boolean {
