@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import * as fromModalLayer from './store/modal-layer.reducers';
+import * as ModalLayerActions from './store/modal-layer.actions';
 
 @Component({
   selector: 'app-modal-layer',
@@ -16,6 +17,13 @@ export class ModalLayerComponent implements OnInit {
 
   ngOnInit() {
     this.modalState$ = this.store.select('modal');
+  }
+
+  onHide (event) {
+    if (event.target.id === '') {
+        return false;
+    }
+    this.store.dispatch(new ModalLayerActions.HideModal());
   }
 
 }

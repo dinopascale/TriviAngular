@@ -1,3 +1,1 @@
-<span fxFlex>
-  {{(timer$ | async) || timeLimit}}
-</span>
+<mat-progress-bar mode="determinate" [value]="timeValue" fxFlex ngClass="timer-bar" [color]="color"></mat-progress-bar>

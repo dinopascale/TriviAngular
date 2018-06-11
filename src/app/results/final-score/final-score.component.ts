@@ -14,13 +14,15 @@ export class FinalScoreComponent implements OnInit {
     ngOnInit() {}
 
     getTotalScore (): number {
-        return this.questions.reduce((sum: number, curr: AnsweredQuestion) => {
+        let result;
+        result = this.questions.reduce((sum: number, curr: AnsweredQuestion) => {
             if (curr.correct_answer === curr.userAnswer) {
                 return sum + 1;
             } else {
                 return sum;
             }
         }, 0);
+        return Math.round((result / this.questions.length) * 100);
     }
 
 }

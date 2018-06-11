@@ -1,11 +1,12 @@
 import { map, switchMap } from 'rxjs/operators';
-import { Observable, interval, of } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as fromQuestions from '../store/questions.reducers';
+import * as fromModal from '../../core/modal-layer/store/modal-layer.reducers';
 import * as ModalLayerActions from '../../core/modal-layer/store/modal-layer.actions';
 import * as QuestionsAction from '../store/questions.actions';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -13,43 +14,58 @@ import * as QuestionsAction from '../store/questions.actions';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit, OnDestroy {
-    timer$: Observable<number>;
-    subcrib;
-    timeLimit = 15;
-    quizLen: number;
+    questionSubcrib;
+    pauseSubscrib;
+    modalState: boolean;
+    timeValue = 100;
+    interval;
+    actualQuestion: number;
+    quizLength: number;
+    color = 'primary';
 
-    constructor(private store: Store<fromQuestions.FeatureState>) { }
+    constructor(private store: Store<fromQuestions.FeatureState>) {}
 
     ngOnInit() {
-        this.subcrib = this.store.select('questions').subscribe(
-            (data: fromQuestions.State) => {
-                this.quizLen = data.questions.length;
+        this.questionSubcrib = this.store.select('questions')
+            .subscribe((state: fromQuestions.State) => {
+                this.actualQuestion = state.actualQuestion;
+                this.quizLength = state.questions.length;
+            });
+        this.startCountDown();
+        this.pauseSubscrib = this.store.select('modal')
+            .subscribe((state: fromModal.State) => {
+                this.modalState = state.isModalOpen;
+            });
+    }
+
+    startCountDown () {
+        this.interval = setInterval(() => {
+            if (this.modalState) {
+                return false;
             }
-        );
-        this.timer$ = this.store.select('questions').pipe(
-            map((data: fromQuestions.State) => {
-                return data.actualQuestion;
-            }),
-            switchMap((actualQ: number) => {
-                return interval(1000).pipe(
-                    map((i: number) => {
-                        if ((this.timeLimit - i) < 0) {
-                            if (actualQ + 1 === this.quizLen) {
-                                this.store.dispatch(new ModalLayerActions.ShowModal('loading'));
-                                this.store.dispatch(new QuestionsAction.SetLastAnswer({answer: ''}));
-                            } else {
-                                this.store.dispatch(new QuestionsAction.SetAnswer({answer: ''}));
-                            }
-                        }
-                        return (this.timeLimit - i);
-                    })
-                );
-            })
-        );
+            if (this.timeValue <= 20) {
+                this.color = 'warn';
+            }
+            if (this.timeValue < 1) {
+                if (this.actualQuestion + 1 === this.quizLength) {
+                    this.store.dispatch(new ModalLayerActions.ShowModal('loading'));
+                    this.store.dispatch(new QuestionsAction.SetLastAnswer({answer: ''}));
+                } else {
+                    this.store.dispatch(new QuestionsAction.SetAnswer({answer: ''}));
+                }
+            }
+            this.timeValue--;
+        }, 60);
+    }
+
+    stopCountDown() {
+        clearInterval(this.interval);
     }
 
     ngOnDestroy () {
-        this.subcrib.unsubscribe();
+        this.questionSubcrib.unsubscribe();
+        this.pauseSubscrib.unsubscribe();
+        this.stopCountDown();
     }
 }
 

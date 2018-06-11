@@ -13,3 +13,13 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (min-width: 599px) {
+    .total-score {
+        height: 240px;
+        width: 240px;
+        font-size: 3rem;
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+}

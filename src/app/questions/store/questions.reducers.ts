@@ -37,7 +37,8 @@ export function QuestionsReducers (state = initialState, action: QuestionsAction
         case QuestionsActions.ERR_FETCH_QUESTIONS:
             return {
                 ...state,
-                fetchError: true
+                fetchError: true,
+                SetQuestionsError: true
             };
         case QuestionsActions.SET_ANSWER:
             const updatedQuestions = state.questions.map((q, i) => {

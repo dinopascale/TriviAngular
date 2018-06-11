@@ -9,15 +9,14 @@ body {
 }
 
 .container, .container-accent {
-    margin: 0 auto;
-    max-width: 998px;
     color: #fff;
     background: #3f51b5;
     position: absolute;
     left:0;
     right:0;
     top:64px;
-    padding-top: 45px;
+    padding-top: 75px;
+    overflow-x: hidden;
     min-height: calc(100% - 64px);
 }
 
@@ -26,9 +25,15 @@ body {
     color: #3f51b5;
 }
 
+.route-container {
+    max-width: 998px;
+    margin: 0 auto;
+}
+
 @media (max-width: 599px) {
     .container, .container-accent {
         top: 56px;
-        min-height: calc(100% - 56px); 
+        min-height: calc(100% - 56px);
+        padding-top: 45px;
     }
 }

@@ -1,4 +1,4 @@
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -15,21 +15,20 @@ import * as ModalLayerActions from './../core/modal-layer/store/modal-layer.acti
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit, OnDestroy {
-    questionState: fromQuestions.FeatureState;
+    questionState: fromQuestions.State;
     subscription: Subscription;
 
     constructor (private store: Store<fromQuestions.FeatureState>) {}
 
     ngOnInit () {
-        this.subscription = this.store.subscribe((state: fromQuestions.FeatureState) => {
-            this.questionState = {...state};
+        this.subscription = this.store.select('questions').subscribe((state: fromQuestions.State) => {
+            this.questionState = state;
         });
     }
 
     canDeactivate(): Observable<boolean> | boolean {
-       if (this.questionState.questions.actualQuestion <= this.questionState.questions.questions.length - 1) {
+       if (this.questionState.actualQuestion <= this.questionState.questions.length - 1) {
            this.store.dispatch(new ModalLayerActions.ShowModal('pause'));
-           return !this.questionState.modal.isModalOpen;
        } else {
            return true;
        }

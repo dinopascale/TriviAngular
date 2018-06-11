@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
     exports: [
@@ -23,7 +25,8 @@ import { MatBadgeModule } from '@angular/material/badge';
         MatIconModule,
         MatCheckboxModule,
         MatCardModule,
-        MatBadgeModule
+        MatBadgeModule,
+        MatProgressBarModule
     ]
 })
 export class AngularMaterialModule {}

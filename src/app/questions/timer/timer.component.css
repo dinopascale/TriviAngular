@@ -1,0 +1,9 @@
+.timer-bar {
+    width: 70%;
+    margin: 20px auto;
+    /* height: 10px; */
+}
+
+@media (min-width: 599px) {
+    .timer-bar { margin: 40px auto; }
+}

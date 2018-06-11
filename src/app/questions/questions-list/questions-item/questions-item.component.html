@@ -1,4 +1,5 @@
 <div ngClass="question-item">
+    <app-timer></app-timer>
     <h4 ngClass="question" class="mat-headline" [innerHTML]="(questionItem.question | decodeURI)"></h4>
     <app-answers-list [answers]="shuffledArr"></app-answers-list>
 </div>

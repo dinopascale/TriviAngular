@@ -1,7 +1,5 @@
 <div *ngFor="let questionItem of (questionsState$ | async).questions; let i = index" fxLayout="column" [@slideInOut] ngClass="question-item-container">
-    <app-questions-item 
-        *ngIf="i === (questionsState$ | async).actualQuestion && i <= (questionsState$ | async).actualQuestion"
-        [questionItem]="questionItem"
-        [@slideInOut]>
-    </app-questions-item>
+    <div *ngIf="i === (questionsState$ | async).actualQuestion && i <= (questionsState$ | async).actualQuestion" [@slideInOut]>
+        <app-questions-item [questionItem]="questionItem"></app-questions-item>
+    </div>
 </div>
