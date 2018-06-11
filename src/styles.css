@@ -17,7 +17,7 @@ body {
     top:64px;
     padding-top: 75px;
     overflow-x: hidden;
-    min-height: calc(100% - 64px);
+    min-height: calc(100vh - 64px);
 }
 
 .container-accent {
@@ -33,7 +33,7 @@ body {
 @media (max-width: 599px) {
     .container, .container-accent {
         top: 56px;
-        min-height: calc(100% - 56px);
+        min-height: calc(100vh - 56px);
         padding-top: 45px;
     }
 }
