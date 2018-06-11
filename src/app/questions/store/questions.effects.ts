@@ -1,9 +1,8 @@
-import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Effect, Actions, ofType } from '@ngrx/effects';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { switchMap, map, tap, take } from 'rxjs/operators';
+import { Effect, Actions } from '@ngrx/effects';
+import { HttpClient } from '@angular/common/http';
+import { switchMap, map } from 'rxjs/operators';
 
 import * as QuestionsActions from './questions.actions';
 

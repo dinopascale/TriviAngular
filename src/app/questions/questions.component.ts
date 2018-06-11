@@ -1,11 +1,8 @@
-import { map, switchMap, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, CanDeactivate } from '@angular/router';
 
 import * as fromQuestions from './store/questions.reducers';
-import * as fromModalLayer from '../core/modal-layer/store/modal-layer.reducers';
 import * as ModalLayerActions from './../core/modal-layer/store/modal-layer.actions';
 
 

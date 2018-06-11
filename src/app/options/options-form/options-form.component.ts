@@ -1,7 +1,5 @@
-import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Options } from './../../shared/options.model';
@@ -56,7 +54,6 @@ export class OptionsFormComponent implements OnInit {
     }
 
     onSubCategories(data: {categories: TriviaCategories[]}) {
-        console.log(data);
         data.categories.forEach(el => {
             if (el.name.includes('Entertainment')) {
                 let newName = el.name;
@@ -71,7 +68,6 @@ export class OptionsFormComponent implements OnInit {
             }
         });
         this.categorizedKeys = Object.keys(this.categorized);
-        console.log(this.categorized, this.categorizedKeys);
     }
 
 }

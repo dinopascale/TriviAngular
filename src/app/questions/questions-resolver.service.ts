@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -6,7 +5,6 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import * as fromQuestions from './store/questions.reducers';
 import * as QuestionsActions from './store/questions.actions';
 
-import { QuestionsResponse } from './../shared/triviaCategories.model';
 
 @Injectable()
 export class QuestionsResolver implements Resolve<boolean> {

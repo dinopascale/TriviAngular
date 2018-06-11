@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import * as fromApp from '../../store/app.reducers';
-import * as fromHome from '../home/store/home.reducers';
 import * as HomeActions from '../home/store/home.actions';
 
 @Component({

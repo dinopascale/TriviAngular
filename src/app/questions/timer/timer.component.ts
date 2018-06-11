@@ -1,4 +1,3 @@
-import { map, switchMap } from 'rxjs/operators';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 
@@ -6,7 +5,6 @@ import * as fromQuestions from '../store/questions.reducers';
 import * as fromModal from '../../core/modal-layer/store/modal-layer.reducers';
 import * as ModalLayerActions from '../../core/modal-layer/store/modal-layer.actions';
 import * as QuestionsAction from '../store/questions.actions';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
