@@ -1,11 +1,12 @@
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 2;
 }
 
 ::ng-deep .mat-toolbar.mat-accent {
-    color: #3f51b5;
+  color: #3f51b5;
 }

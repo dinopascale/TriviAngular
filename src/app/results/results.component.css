@@ -1,5 +1,6 @@
 .results-container {
-    padding-left: 25px;
-    padding-right: 25px;
-    color: #ffd740;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #ffd740;
+  width: 100vw;
 }

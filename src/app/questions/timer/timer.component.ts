@@ -53,7 +53,7 @@ export class TimerComponent implements OnInit, OnDestroy {
                 }
             }
             this.timeValue--;
-        }, 60);
+        }, 150);
     }
 
     stopCountDown() {

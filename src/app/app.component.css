@@ -1,4 +1,4 @@
 .blurred {
-    filter: blur(2px);
-    overflow-y: hidden;
+  filter: blur(2px);
+  overflow-y: hidden;
 }
